@@ -1,28 +1,18 @@
 module "vpc" {
-    #source = "../terraform-aws-vpc"
-    source = "git::https://github.com/daws-86s/terraform-aws-vpc.git?ref=main"
-    # vpc_cidr = "10.0.0.0/16"
-    # project_name = "roboshop"
-    # environment = "dev"
-
-    # VPC
-    vpc_cidr = var.vpc_cidr
-    project_name = var.project_name
-    environment = var.environment
-    vpc_tags = var.vpc_tags
-
-    # public subnets
-    public_subnet_cidrs = var.public_subnet_cidrs
-
-    # private subnets
-    private_subnet_cidrs = var.private_subnet_cidrs
-
-    # database subnets
-    database_subnet_cidrs = var.database_subnet_cidrs
-
-    is_peering_required = true
+  source = "../terraform-aws-vpc"
+  vpc_cidr     = var.vpc_cidr
+  project_name = var.project_name
+  environment  = var.environment
+  owner        = var.owner
+  vpc_tags     = var.vpc_tags
+  igw_vpc_tags = var.igw_vpc_tags
+  public_subnet_cidrs = var.public_subnet_cidrs
+  public_subnet_tags = var.public_subnet_tags
+  private_subnet_cidrs = var.private_subnet_cidrs
+  private_subnet_tags = var.private_subnet_tags
+  database_subnet_cidrs = var.database_subnet_cidrs
+  database_subnet_tags = var.database_subnet_tags
+  database_route_table_tags = var.database_route_table_tags
+  public_route_table_tags = var.public_route_table_tags
+  private_route_table_tags = var.private_route_table_tags
 }
-
-# data "aws_availability_zones" "available" {
-#   state = "available"
-# }

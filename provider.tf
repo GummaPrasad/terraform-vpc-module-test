@@ -5,16 +5,15 @@ terraform {
       version = "6.16.0"
     }
   }
-
-  backend "s3" {
-    bucket = "remote-state-86s"
-    key    = "vpc-module-demo"
-    region = "us-east-1"
-    use_lockfile = true
-    encrypt = true
-  }
-}
-
-provider "aws" {
+backend "s3" {
+  bucket = "gp-practice-s3-bucket"
+  key    = "vpc-module-demo"
   region = "us-east-1"
+  use_lockfile = true
+  encrypt = true
+}
+}
+provider "aws" {
+  region  = "us-east-1"
+  profile = "personal"
 }
