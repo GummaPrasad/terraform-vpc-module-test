@@ -82,4 +82,7 @@ variable "database_route_table_tags" {
   }
   description = "The tags for the database route table"
 }
-  
+variable "is_peering_required" {
+  default     = true
+  description = "Flag to indicate if VPC peering is required"
+}
